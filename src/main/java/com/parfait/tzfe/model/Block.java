@@ -7,12 +7,21 @@ import java.awt.*;
 
 @Data
 public class Block {
-	private int value;
+	private Integer value;
+	private Point point;
 	private Block() {}
 
-	public static Block getInstanceWithValue(int value) {
+	public static Block getInstanceWithValue(Integer value) {
 		Block block = new Block();
 		block.value = value;
+
+		return block;
+	}
+
+	public static Block getInstanceWithPointAndValue(Point point, Integer value) {
+		Block block = new Block();
+		block.value = value;
+		block.point = point;
 
 		return block;
 	}

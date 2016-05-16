@@ -1,6 +1,10 @@
 package com.parfait.tzfe.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.parfait.tzfe.exception.InvokeNewBlockException;
+import com.parfait.tzfe.utils.BlockRandomValueGenerator;
+
 import lombok.Data;
 
 @Data
@@ -33,8 +37,11 @@ public class Table {
 	public Block fillWithNewBlock() throws InvokeNewBlockException {
 
 		Point newBlockPoint = getNewBlockPoint();
+		Integer blockValue = BlockRandomValueGenerator.generateBlockRandomValue();
+		Block block = Block.getInstanceWithPointAndValue(newBlockPoint, blockValue);
+		blocks[block.getPoint().getY()][block.getPoint().getX()] = block;
 
-		return null;
+		return block;
 	}
 
 	public boolean isFull() {
@@ -65,6 +72,19 @@ public class Table {
 			if (blocks[randomY][randomX] == null) {
 				return new Point(randomX, randomY);
 			}
+		}
+	}
+
+	public void printToConsole() {
+
+		for (int i = 0; i < rowSize; i++) {
+
+			for (int j = 0; j < colSize; j++) {
+
+				System.out.print(blocks[i][j].getValue() + " ");
+			}
+
+			System.out.println("\n");
 		}
 	}
 }
