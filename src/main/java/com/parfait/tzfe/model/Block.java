@@ -2,10 +2,12 @@ package com.parfait.tzfe.model;
 
 import com.parfait.tzfe.utils.BlockRandomValueGenerator;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.awt.*;
 
 @Data
+@EqualsAndHashCode
 public class Block {
 	private Integer value;
 	private Point point;

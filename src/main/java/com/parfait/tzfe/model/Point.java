@@ -2,8 +2,9 @@ package com.parfait.tzfe.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-@Data
+@Getter
 @EqualsAndHashCode()
 public class Point {
 
